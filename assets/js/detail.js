@@ -1,22 +1,23 @@
+// CONSTANTS
 const bgThumbnail = "#bg-thumbnail";
 
+// GET JSON
 function getNews(id) {
     let response = $.ajax({
         type: "GET",
         dataType: "json", 
         async: false,
-        url: "./db/news.json", 
+        url: "./content/news.json", 
         error: function (xhr, ajaxOptions, thrownError) {
             alert(xhr.status);
             alert(thrownError);
         }
     });
-
     return response.responseJSON.find(x => x.id == id);
 }
 
-function appendInformation(info) {
-    
+// ADD JSON INFO TO HTML ELEMENTS    
+function appendJSONInfo(info) {
     $(bgThumbnail).css("background-image", `url('assets/materials/news/${info.thumbnail}')`);
     $("#title").html(info.title);
     $("#subtitle").html(info.subtitle);
@@ -61,7 +62,7 @@ $(function(){
             throw Error();
         }
 
-        appendInformation(news);
+        appendJSONInfo(news);
     } catch (error) {
         window.location.replace("/");
     }

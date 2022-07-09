@@ -4,6 +4,6 @@ const contactForm = "#contactForm";
 
 // GIVE ME NAVBAR AND FOOTER
 $(function(){
-    $(navbar).load("../../partials/_header.html"); 
-    $(footer).load("../../partials/_footer.html"); 
+    $(navbar).load("../../components/_header.html"); 
+    $(footer).load("../../components/_footer.html"); 
 });
